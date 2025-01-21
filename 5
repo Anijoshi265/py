@@ -1,6 +1,5 @@
 import pandas as pd
 
-# Sample DataFrames
 data1 = {
     'ID': [1, 2, 3],
     'Name': ['Akash', 'Babitha', 'Charan'],
@@ -12,7 +11,6 @@ data2 = {
     'Salary': [70000, 80000, 60000]
 }
 
-# Creating DataFrames
 df1 = pd.DataFrame(data1)
 df2 = pd.DataFrame(data2)
 
@@ -21,22 +19,19 @@ print(df1)
 print("\nDataFrame 2:")
 print(df2)
 
-# 1. Merging Datasets using Inner Join
 merged_inner = pd.merge(df1, df2, on='ID', how='inner')
 print("\nMerged DataFrame using Inner Join on ID:")
 print(merged_inner)
 
-# 2. Merging Datasets using Outer Join
 merged_outer = pd.merge(df1, df2, on='ID', how='outer')
 print("\nMerged DataFrame using Outer Join on ID:")
 print(merged_outer)
 
-# 3. Concatenating Datasets
 concatenated = pd.concat([df1, df2], ignore_index=True)
 print("\nConcatenated DataFrame:")
 print(concatenated)
 
-# 4. Appending Datasets
-appended = df1.append(df2, ignore_index=True)
-print("\nAppended DataFrame:")
+# Replacing append with concat for pandas 2.0+
+appended = pd.concat([df1, df2], ignore_index=True)
+print("\nAppended DataFrame (using concat):")
 print(appended)
