@@ -1,0 +1,29 @@
+import pandas as pd
+
+data = {
+    "Department": ["HR", "HR", "IT", "IT", "Finance", "Finance"],
+    "Employee": ["Alice", "Bob", "Charlie", "David", "Eve", "Frank"],
+    "Salary": [50000, 55000, 60000, 65000, 70000, 75000],
+    "Bonus": [5000, 5500, 6000, 6500, 7000, 7500],
+    "Gender": ["Female", "Male", "Male", "Male", "Female", "Male"]
+}
+
+df = pd.DataFrame(data)
+
+print("Original DataFrame:")
+print(df)
+
+# Pivot Table: Summarizing data by department
+pivot_table = pd.pivot_table(df, values="Salary", index="Department", columns="Gender", aggfunc="mean", fill_value=0)
+print("\nPivot Table - Average Salary by Department and Gender:")
+print(pivot_table)
+
+# Cross Tabulation: Counting employees by department and gender
+cross_tab = pd.crosstab(df["Department"], df["Gender"])
+print("\nCross Tabulation - Employee Count by Department and Gender:")
+print(cross_tab)
+
+# Cross Tabulation: Summarizing bonuses by department and gender using crosstab
+bonus_cross_tab = pd.crosstab(df["Department"], df["Gender"], values=df["Bonus"], aggfunc="sum", margins=True, margins_name="Total")
+print("\nCross Tabulation - Total Bonus by Department and Gender:")
+print(bonus_cross_tab)
