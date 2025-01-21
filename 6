@@ -1,0 +1,29 @@
+sample_string = "Hello, welcome to the world of Python programming!"
+
+uppercase_string = sample_string.upper()
+print("Uppercase:", uppercase_string)
+
+lowercase_string = sample_string.lower()
+print("Lowercase:", lowercase_string)
+
+substring = "Python"
+position = sample_string.find(substring)
+if position != -1:
+    print(f"'{substring}' found at position {position}")
+else:
+    print(f"'{substring}' not found in the string.")
+
+replaced_string = sample_string.replace("Python", "Java")
+print("Replaced String:", replaced_string)
+
+words = sample_string.split()
+print("Words in the string:", words)
+
+starts_with = sample_string.startswith("Hello")
+print("Starts with 'Hello':", starts_with)
+
+ends_with = sample_string.endswith("programming!")
+print("Ends with 'programming!':", ends_with)
+
+count = sample_string.count("o")
+print("Number of 'o' in the string:", count)
