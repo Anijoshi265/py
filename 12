@@ -1,0 +1,20 @@
+import pandas as pd
+import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
+# Load the sales data from the CSV file
+sl = pd.read_csv("sales1.csv")
+sl.head()
+# Create a regression plot
+sns.regplot(
+x="Units",
+y="Unit Price",
+data=sl,
+color="r",
+marker="+",
+scatter_kws={'color': 'green'})
+plt.title("Regression Plot", fontsize=15)
+plt.xlabel("Units (ut)")
+plt.ylabel("Unit Price ($)")
+# Display the plot
+plt.show()
