@@ -1,0 +1,17 @@
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+# Load the car data from the CSV file
+cs=pd.read_csv('cars.csv')
+cs.head()
+fuel=cs['Fuel_Type']
+prices=cs['Price']
+# Create a bar chart/plot
+plt.bar(fuel,prices,color="skyblue")
+plt.xlabel("Fuel Type")
+plt.ylabel("Price($)")
+plt.title("[Price vs Fuel]")
+plt.xticks(rotation=45,ha="right")
+plt.tight_layout()
+# Display the plot
+plt.show()
