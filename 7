@@ -1,0 +1,41 @@
+import pandas as pd
+
+data = {
+    'Name': ['Alice', 'Bob', 'Charlie', 'David'],
+    'Age': [25, 30, 35, 40],
+    'Salary': [50000, 60000, 70000, 80000]
+}
+
+df = pd.DataFrame(data)
+
+df['Salary_in_Thousands'] = df['Salary'] / 1000
+print("\n Column with transformed Salary:")
+print(df)
+
+filtered_df = df[df['Age'] > 30]
+print("\n Filtered DataFrame (Age > 30):")
+print(filtered_df)
+
+df['Age_Squared'] = df['Age'].apply(lambda x: x ** 2)
+print("\n Data with Age Squared column:")
+print(df)
+
+df.rename(columns={'Name': 'Employee Name', 'Age': 'Employee Age'}, inplace=True)
+print("\n Data with renamed columns:")
+print(df)
+
+data_with_nan = {
+    'Name': ['Eve', 'Frank', None, 'Hannah'],
+    'Age': [22, None, 29, 34],
+    'Salary': [45000, 52000, None, 61000]
+}
+
+df_with_nan = pd.DataFrame(data_with_nan)
+
+df_filled = df_with_nan.fillna({'Age': 0, 'Salary': 0, 'Name': 'Unknown'})
+print("\n Filled data with missing values:")
+print(df_filled)
+
+df_dropped = df_with_nan.dropna()
+print("\n Removed data with missing values:")
+print(df_dropped)
