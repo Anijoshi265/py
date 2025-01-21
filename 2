@@ -1,0 +1,16 @@
+class Student:
+    def __init__(self, name, grades):
+        self.name = name
+        self.grades = grades
+
+    def average_grade(self):
+        return sum(self.grades) / len(self.grades) if self.grades else 0
+
+students = [
+    Student("Prashastha", [85, 90, 92]),
+    Student("Pradyumna", [78, 88, 84]),
+    Student("Prashamsa", [92, 94, 89])
+]
+
+for student in students:
+    print(f"Student: {student.name}, Average Grade: {student.average_grade():.2f}")
