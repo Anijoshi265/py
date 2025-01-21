@@ -1,0 +1,41 @@
+a)
+# Demonstrating Text File Reading and Writing
+# Text File Operations
+def text_file_operations():
+    # Writing to a text file
+    with open("example_text.txt", "w") as text_file:
+        text_file.write("Hello, this is an example of writing to a text file.\n")
+        text_file.write("Python makes file handling simple and efficient.\n")
+    print("Text data is written to 'example_text.txt'.")
+    
+    # Reading from a text file
+    with open("example_text.txt", "r") as text_file:
+        print("\nReading from 'example_text.txt':")
+        for line in text_file:
+            print(line.strip())
+
+# Main Execution
+if __name__ == "__main__":
+    text_file_operations()
+
+
+b)
+# Demonstrating Binary File Reading and Writing
+def binary_file_operations():
+    # Writing to a binary file
+    data = [1, 2, 3, 4, 5]
+    with open("example_binary.bin", "wb") as bin_file:
+        for number in data:
+            bin_file.write(number.to_bytes(4, byteorder='little'))  # Convert to bytes and write
+    print("Binary data is written to 'example_binary.bin'.")
+    
+    # Reading from a binary file
+    with open("example_binary.bin", "rb") as bin_file:
+        print("\nReading from 'example_binary.bin':")
+        while byte := bin_file.read(4):  # Read 4 bytes at a time
+            print(int.from_bytes(byte, byteorder='little'))  # Convert bytes back to integer
+
+# Main Execution for Binary File Operations
+if __name__ == "__main__":
+    text_file_operations()
+    binary_file_operations()
