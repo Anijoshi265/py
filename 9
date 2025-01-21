@@ -1,0 +1,28 @@
+import pandas as pd
+import numpy as np
+
+data = {
+    "Department": ["HR", "HR", "IT", "IT", "Finance", "Finance"],
+    "Employee": ["Alice", "Bob", "Charlie", "David", "Eve", "Frank"],
+    "Salary": [50000, 55000, 60000, 65000, 70000, 75000]
+}
+df = pd.DataFrame(data)
+
+print("Original DataFrame:")
+print(df)
+
+total_salary = df.groupby("Department")["Salary"].sum()
+print("\nTotal Salary by Department:")
+print(total_salary)
+
+average_salary = df.groupby("Department")["Salary"].mean()
+print("\nAverage Salary by Department:")
+print(average_salary)
+
+df["Average_Salary"] = df.groupby("Department")["Salary"].transform("mean")
+print("\nDataFrame with Average Salary Column:")
+print(df)
+
+df["Salary_Rank"] = df.groupby("Department")["Salary"].rank(ascending=False)
+print("\nDataFrame with Salary Rank Column:")
+print(df)
