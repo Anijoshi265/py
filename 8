@@ -1,0 +1,32 @@
+import pandas as pd
+
+data = {
+    "Department": ["HR", "HR", "IT", "IT", "Finance", "Finance", "Marketing", "Marketing"],
+    "Employee": ["Alice", "Bob", "Charlie", "David", "Eva", "Frank", "Grace", "Hannah"],
+    "Salary": [50000, 60000, 75000, 80000, 65000, 72000, 55000, 58000],
+    "Experience": [5, 6, 7, 8, 4, 5, 3, 4]
+}
+
+df = pd.DataFrame(data)
+
+print("Original Data:")
+print(df)
+
+avg_salary = df.groupby("Department")[["Salary"]].mean()
+print("\n Average Salary by Department:")
+print(avg_salary)
+
+total_experience = df.groupby("Department")[["Experience"]].sum()
+print("\n Total Experience by Department:")
+print(total_experience)
+
+max_salary = df.groupby("Department")[["Salary"]].max()
+print("\n Maximum Salary by Department:")
+print(max_salary)
+
+aggregated_data = df.groupby("Department").agg({
+    "Salary": "mean",
+    "Experience": "sum"
+})
+print("\n Aggregated Data (Average Salary and Total Experience):")
+print(aggregated_data)
